@@ -1,9 +1,20 @@
 import java.util.Scanner;
 
+/*
+ * Description: This project calculates invoice total with discount included based on user's input
+ * Written by: Anaberdi Meredov
+ * Date Written: 2022.01.31
+ * GitHub: https://github.com/sherlock59/InvoiceApp.git
+ */
+
+
 public class InvoiceApp {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
+		
+		String userInput = "y";
+		
 		// welcome the user to the program
 		System.out.println("Welcome to the Invoice Total Calculator version 23");
 		System.out.println();  // print a blank line
@@ -12,8 +23,7 @@ public class InvoiceApp {
 		Scanner sc = new Scanner(System.in);
 
 		// perform invoice calculations until choice isn't equal to "y" or "Y"
-		String choice = "y";
-		while (choice.equalsIgnoreCase("y")) {
+		while (userInput.equalsIgnoreCase("y")) {
 			// get the invoice subtotal from the user
 			System.out.print("Enter subtotal:   ");
 			String input = sc.nextLine();
@@ -41,7 +51,6 @@ public class InvoiceApp {
 			System.out.print("Continue? (y/n): ");
 			choice = sc.nextLine();
 			System.out.println();
-			fbejhbfr
 		}
 	}    
 }
