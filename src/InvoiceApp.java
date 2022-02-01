@@ -13,33 +13,35 @@ public class InvoiceApp {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		String userInput = "y";
+		String userInput = "y"; // asks if the user wants to commit another invoice result 
+		Scanner scan = new Scanner(System.in); // creates a Scanner object named scan
+		double discountPercent; // applies discount depending on eligibility 
 		
-		// welcome the user to the program
+		// welcomes the user to the program
+		System.out.println("=====================================================");
 		System.out.println("Welcome to the Invoice Total Calculator version 23");
+		System.out.println("=====================================================");
 		System.out.println();  // print a blank line
 
-		// create a Scanner object named sc
-		Scanner sc = new Scanner(System.in);
 
-		// perform invoice calculations until choice isn't equal to "y" or "Y"
+		// performs invoice calculations until choice isn't equal to "y" or "Y"
 		while (userInput.equalsIgnoreCase("y")) {
-			// get the invoice subtotal from the user
-			System.out.print("Enter subtotal:   ");
-			String input = sc.nextLine();
-			double subtotal = Double.parseDouble(input);
-
+			// get the invoice items from the user
+			System.out.print("Enter the number of line items:   \n");
+			String input = scan.nextLine();
+			double items = Double.parseDouble(input);
+			System.out.println("=====================================================");
+			System.out.println();
 			// calculate the discount amount and total
-			double discountPercent;
-			if (subtotal >= 200) {
+			if (items >= 200) {
 				discountPercent = .2;
-			} else if (subtotal >= 100) {
+			} else if (items >= 100) {
 				discountPercent = .1;
 			} else {
 				discountPercent = 0.0;
 			}
-			double discountAmount = subtotal * discountPercent;
-			double total = subtotal - discountAmount;
+			double discountAmount = items * discountPercent;
+			double total = items - discountAmount;
 
 			// display the discount amount and total
 			String message = "Discount percent: " + discountPercent + "\n"
@@ -49,7 +51,7 @@ public class InvoiceApp {
 
 			// see if the user wants to continue
 			System.out.print("Continue? (y/n): ");
-			choice = sc.nextLine();
+			userInput = scan.nextLine();
 			System.out.println();
 		}
 	}    
