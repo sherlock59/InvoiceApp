@@ -10,49 +10,45 @@ import java.util.Scanner;
 
 public class InvoiceApp {
 
-	@SuppressWarnings("resource")
+
 	public static void main(String[] args) {
+		String userYesNo = "y"; // asks if the user wants to commit another invoice result 
+		int input = 0;
+		int i = 0;
 		
-		String userInput = "y"; // asks if the user wants to commit another invoice result 
-		Scanner scan = new Scanner(System.in); // creates a Scanner object named scan
-		double discountPercent; // applies discount depending on eligibility 
+		
+		Scanner mySystemKeyboard = new Scanner(System.in);
 		
 		// welcomes the user to the program
 		System.out.println("=====================================================");
 		System.out.println("Welcome to the Invoice Total Calculator version 23");
-		System.out.println("=====================================================");
-		System.out.println();  // print a blank line
+		System.out.println("=====================================================\n");
+		
+		while (userYesNo.equalsIgnoreCase("y")) {
 
-
-		// performs invoice calculations until choice isn't equal to "y" or "Y"
-		while (userInput.equalsIgnoreCase("y")) {
-			// get the invoice items from the user
-			System.out.print("Enter the number of line items:   \n");
-			String input = scan.nextLine();
-			double items = Double.parseDouble(input);
-			System.out.println("=====================================================");
-			System.out.println();
-			// calculate the discount amount and total
-			if (items >= 200) {
-				discountPercent = .2;
-			} else if (items >= 100) {
-				discountPercent = .1;
-			} else {
-				discountPercent = 0.0;
+			System.out.print("How many line items are there:   ");
+			input = mySystemKeyboard.nextInt();
+			
+			for( i = 1; i <= input; i++) {
+				System.out.print("Enter the line item ");
+				System.out.println(i + ":"
+						+ mySystemKeyboard.nextInt());
+				
+				
+				
 			}
-			double discountAmount = items * discountPercent;
-			double total = items - discountAmount;
-
-			// display the discount amount and total
-			String message = "Discount percent: " + discountPercent + "\n"
-					+ "Discount amount:  " + discountAmount + "\n"
-					+ "Invoice total:    " + total + "\n";            
-			System.out.println(message);
-
-			// see if the user wants to continue
-			System.out.print("Continue? (y/n): ");
-			userInput = scan.nextLine();
+			System.out.println("something  went wrong");
+			
+			
+			
+			mySystemKeyboard.nextLine(); //cleaning the buffer
+			System.out.println("Continue (y/n); ");
+			userYesNo = mySystemKeyboard.nextLine();
 			System.out.println();
 		}
-	}    
+	}
 }
+		
+
+		
+		
