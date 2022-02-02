@@ -15,6 +15,10 @@ public class InvoiceApp {
 		String userYesNo = "y"; // asks if the user wants to commit another invoice result 
 		int input = 0;
 		int i = 0;
+		double discountPercent;
+		double discountAmount;
+		double invoiceTotal;
+		int total;
 		
 		
 		Scanner mySystemKeyboard = new Scanner(System.in);
@@ -31,12 +35,29 @@ public class InvoiceApp {
 			
 			for( i = 1; i <= input; i++) {
 				System.out.print("Enter the line item ");
-				System.out.println(i + ":"
-						+ mySystemKeyboard.nextInt());
+				System.out.println(i + ":");
+				mySystemKeyboard.nextInt();
+			
 				
+				if (i >= 1000) {
+					discountPercent = .2;
+		   	 }    else if (i >= 500 ) {
+		   		    discountPercent = .1;
+		   	 } else {discountPercent = .0;
+		   	 
+		   	 }
+				discountAmount = input * discountPercent;
+				invoiceTotal = input - discountAmount;
+				total = input + i;
+				
+				System.out.printf("%20s: %,10.2f\n", "Subtotal", total);
+				System.out.printf("%20s: %,10,2f\n", "Discount percent", discountPercent);
+				System.out.printf("%20s: %,10,2f\n", "Discount amount", discountAmount);
+				System.out.printf("%20s:%,10,2f\n", "Invoice total", invoiceTotal);
 				
 				
 			}
+		}
 			System.out.println("something  went wrong");
 			
 			
@@ -47,7 +68,7 @@ public class InvoiceApp {
 			System.out.println();
 		}
 	}
-}
+
 		
 
 		
