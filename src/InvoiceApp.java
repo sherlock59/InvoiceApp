@@ -43,7 +43,7 @@ public class InvoiceApp {
 				mySystemKeyboard.nextInt();
 
 
-				if (i >= 1000) {
+				/*if (i >= 1000) {
 					discountPercent = .2;
 				}    else if (i >= 500 ) {
 					discountPercent = .1;
@@ -52,7 +52,7 @@ public class InvoiceApp {
 				}
 				discountAmount = input * discountPercent; // calculates the discount the purchase receives
 				invoiceTotal = input - discountAmount; // the total after applied discount 
-				total = input + (i); // total before discount 
+				total = input + (i); // total before discount */
 
 				//System.out.printf("%20s: %,10.2f\n", "total", total);
 				//System.out.printf("%20s: %,10,2f\n", "Discount percent", discountPercent);
