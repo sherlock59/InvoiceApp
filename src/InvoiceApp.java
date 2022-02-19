@@ -6,20 +6,14 @@ import java.util.Scanner;
  * Date Written: 2022.01.31
  * GitHub: https://github.com/sherlock59/InvoiceApp.git
  */
-
-
 public class InvoiceApp {
-
 
 	public static void main(String[] args) {
 		String userYesNo = "y"; // asks if the user wants to commit another invoice result 
-		int input = 0;  // initializing user input value 
-		int i = 0; // for loop 
-		double discountPercent; 
-		double discountAmount;
-		double invoiceTotal;
-		int total;
-
+		int input =0;  // initializing user input value 
+		double discountPercent; //bla bla
+		double discountAmount; // bla bla
+		double invoiceTotal; // blabla
 		// creating the code to get user input 
 		Scanner mySystemKeyboard = new Scanner(System.in); 
 
@@ -35,32 +29,30 @@ public class InvoiceApp {
 			System.out.print("How many line items are there:   \n");
 			input = mySystemKeyboard.nextInt();
 
-
-
-			for( i = 1; i <= input; i++) {
-				System.out.print("Enter the line item ");
-				System.out.println(i + ":");
+		for(int i = 1; i <= input; ++i) {
+				System.out.println("Enter the line item "  );
 				mySystemKeyboard.nextInt();
-
-
-				/*if (i >= 1000) {
-					discountPercent = .2;
-				}    else if (i >= 500 ) {
-					discountPercent = .1;
-				} else {discountPercent = .0;
-
-				}
-				discountAmount = input * discountPercent; // calculates the discount the purchase receives
-				invoiceTotal = input - discountAmount; // the total after applied discount 
-				total = input + (i); // total before discount */
-
-				//System.out.printf("%20s: %,10.2f\n", "total", total);
-				//System.out.printf("%20s: %,10,2f\n", "Discount percent", discountPercent);
-				//System.out.printf("%20s: %,10,2f\n", "Discount amount", discountAmount);
-				//System.out.printf("%20s: %,10,2f\n", "Invoice total", invoiceTotal);
-
-
 			}
+		   if ( input >= 1000) {
+			   discountPercent = 0.2;
+		   }  else if (input >= 500) {
+			   discountPercent = 0.1;
+		   }  else {discountPercent = 0.0;
+		   
+		   } 
+		   discountAmount = input * discountPercent; // calculates the discount 
+           invoiceTotal = input - discountAmount;
+           //subtotal = input + (input);
+           
+     
+         System.out.printf("%20s: %,10.2f\n", "total");
+         System.out.printf("%20s: %,10,2f\n", "Discount percent", 
+         discountPercent);
+         System.out.printf("%20s: %,10,2f\n", "Discount amount", 
+         discountAmount);
+         System.out.printf("%20s: %,10,2f\n", "Invoice total",
+        		 invoiceTotal);
+			
 		}
 		System.out.println("something  went wrong");
 
@@ -72,3 +64,10 @@ public class InvoiceApp {
 		System.out.println();
 	}
 }
+
+
+	///private static int input(int i) {
+		// TODO Auto-generated method stub
+		//return 0;
+	
+
