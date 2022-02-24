@@ -8,66 +8,74 @@ import java.util.Scanner;
  */
 public class InvoiceApp {
 
+	private static Scanner mySystemKeyboard;
+
 	public static void main(String[] args) {
+		
 		String userYesNo = "y"; // asks if the user wants to commit another invoice result 
-		int input =0;  // initializing user input value 
-		double discountPercent; //bla bla
-		double discountAmount; // bla bla
-		double invoiceTotal; // blabla
-		// creating the code to get user input 
-		Scanner mySystemKeyboard = new Scanner(System.in); 
+		int input = 0; // initializing user input value 
+		int subtotal; //initializing total before 
+		double discountPercent; // initializing discount percentage
+		double discountAmount; // sum of the discount 
+		double invoiceTotal; // total after discount applied 
+		
+		mySystemKeyboard = new Scanner(System.in);
+			// welcomes the user to the program
+			System.out.println("=====================================================");
+			System.out.println("Welcome to the Invoice Total Calculator version 23");
+			System.out.println("=====================================================\n");
 
-		// welcomes the user to the program
-		System.out.println("=====================================================");
-		System.out.println("Welcome to the Invoice Total Calculator version 23");
-		System.out.println("=====================================================\n");
+			// while loop that runs the process again if the user enters "y"
+			while (userYesNo.equalsIgnoreCase("y")) {
 
-		// while loop that runs the process again if the user enters "y"
-		while (userYesNo.equalsIgnoreCase("y")) {
+				// asking the user to list the number of items 
+				System.out.print("How many line items are there:   ");
+				input = mySystemKeyboard.nextInt();
 
-			// asking the user to list the number of items 
-			System.out.print("How many line items are there:   \n");
-			input = mySystemKeyboard.nextInt();
+			for(int i =  1 ; i <= input; ++i) {
+					System.out.print("Enter the " + i + " line items  : " );
+					mySystemKeyboard.nextInt();
+				}
+			   if ( input >= 200) {
+				   discountPercent = 0.2;
+			   }  else if (input >= 100) {
+				   discountPercent = 0.1;
+			   }  else {discountPercent = 0.0;
+			   
+			   } 
+			   
+			   subtotal = input + input;
+			   discountAmount = input * discountPercent; // calculates the discount 
+			   invoiceTotal = input - discountAmount;
+			   
+			   
+			   
+    
+			 System.out.printf("%20s: %,10,2f\n", "subtotal", subtotal);
+			 System.out.printf("%20s: %,10,2f\n", "Discount percent", 
+			 discountPercent);
+			 System.out.printf("%20s: %,10,2f\n", "Discount amount", 
+			 discountAmount);
+			 System.out.printf("%20s: %,10,2f\n", "Invoice total",
+			 invoiceTotal);
+				
+			//System.out.println("something  went wrong");
 
-		for(int i = 1; i <= input; ++i) {
-				System.out.println("Enter the line item "  );
-				mySystemKeyboard.nextInt();
+
+			mySystemKeyboard.nextLine(); //cleaning the buffer
+			//if (userYesNo.equalsIgnoreCase("n")){
+				System.out.println("Good Bye");
+			//}
+			System.out.print("Continue (y/n); ");
+			userYesNo = mySystemKeyboard.nextLine();
+			System.out.println();
 			}
-		   if ( input >= 1000) {
-			   discountPercent = 0.2;
-		   }  else if (input >= 500) {
-			   discountPercent = 0.1;
-		   }  else {discountPercent = 0.0;
-		   
-		   } 
-		   discountAmount = input * discountPercent; // calculates the discount 
-           invoiceTotal = input - discountAmount;
-           //subtotal = input + (input);
-           
-     
-         System.out.printf("%20s: %,10.2f\n", "total");
-         System.out.printf("%20s: %,10,2f\n", "Discount percent", 
-         discountPercent);
-         System.out.printf("%20s: %,10,2f\n", "Discount amount", 
-         discountAmount);
-         System.out.printf("%20s: %,10,2f\n", "Invoice total",
-        		 invoiceTotal);
-			
 		}
-		System.out.println("something  went wrong");
-
-
-
-		mySystemKeyboard.nextLine(); //cleaning the buffer
-		System.out.println("Continue (y/n); ");
-		userYesNo = mySystemKeyboard.nextLine();
-		System.out.println();
 	}
-}
-
-
-	///private static int input(int i) {
-		// TODO Auto-generated method stub
-		//return 0;
 	
+
+	
+
+
+
 
