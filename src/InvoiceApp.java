@@ -19,7 +19,7 @@ public class InvoiceApp {
 		double discountAmount; // sum of the discount 
 		double invoiceTotal; // total after discount applied 
 
-		mySystemKeyboard = new Scanner(System.in);
+		mySystemKeyboard = new Scanner(System.in);// creates the input collector system
 		// welcomes the user to the program
 		System.out.println("=====================================================");
 		System.out.println("Welcome to the Invoice Total Calculator version 23");
@@ -31,14 +31,15 @@ public class InvoiceApp {
 			// asking the user to list the number of items 
 			System.out.print("How many line items are there:   ");
 			input = mySystemKeyboard.nextInt();
-			
+
 			subtotal = 0;
 
 			for(int i =  1 ; i <= input; ++i) {
 				System.out.print("Enter the " + i + " line items  : " );
 				subtotal += mySystemKeyboard.nextInt();
 			}
-			
+
+			// calculates discount according the amount input by user
 			if ( subtotal >= 200) {
 				discountPercent = 0.2;
 			}  else if (input >= 100) {
@@ -48,9 +49,10 @@ public class InvoiceApp {
 			} 
 
 			discountAmount = subtotal * discountPercent; // calculates the discount 
-			invoiceTotal = subtotal - discountAmount;
+			invoiceTotal = subtotal - discountAmount; // sets invoiceTotal with applied discount	
 
-			System.out.printf("%20s: %,10.2f\n", "subtotal", subtotal);
+			// lines up the result table results in a raw 
+			System.out.printf("%20s: %,10.2f\n", "subtotal", subtotal); 
 			System.out.printf("%20s: %,10.2f\n", "Discount percent", 
 					discountPercent);
 			System.out.printf("%20s: %,10.2f\n", "Discount amount", 
