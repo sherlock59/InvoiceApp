@@ -31,6 +31,7 @@ public class InvoiceApp {
 			// asking the user to list the number of items 
 			System.out.print("How many line items are there:   ");
 			input = mySystemKeyboard.nextInt();
+			System.out.println("=====================================================\n");
 
 			subtotal = 0;
 
@@ -52,6 +53,7 @@ public class InvoiceApp {
 			invoiceTotal = subtotal - discountAmount; // sets invoiceTotal with applied discount	
 
 			// lines up the result table results in a raw 
+			System.out.println("=====================================================\n");
 			System.out.printf("%20s: %,10.2f\n", "subtotal", subtotal); 
 			System.out.printf("%20s: %,10.2f\n", "Discount percent", 
 					discountPercent);
@@ -59,13 +61,15 @@ public class InvoiceApp {
 					discountAmount);
 			System.out.printf("%20s: %,10.2f\n", "Invoice total",
 					invoiceTotal);
+			System.out.println("=====================================================\n");
 
 			mySystemKeyboard.nextLine(); //cleaning the buffer
 			System.out.print("Continue (y/n); ");
 			userYesNo = mySystemKeyboard.nextLine();
 			System.out.println();
 		}
-		System.out.println("Good Bye");
+		System.out.print("=====================================================\n");
+		System.out.print("Good Bye");
 	}
 }
 
