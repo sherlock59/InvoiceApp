@@ -72,10 +72,3 @@ public class InvoiceApp {
 		System.out.print("Good Bye");
 	}
 }
-
-
-
-
-
-
-
